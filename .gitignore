@@ -12,3 +12,4 @@ gradle/
 .DS_Store
 Thumbs.db
 src/main/java/com/mycompany/jpaprueba/Generated Sources (annotations)/
+mysqldb/
