@@ -138,6 +138,11 @@ public class AltaAutomovil extends javax.swing.JFrame {
 
         btnLlimpiar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLlimpiar.setText("Limpiar");
+        btnLlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLlimpiarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAgregar.setText("Agregar");
@@ -211,6 +216,15 @@ public class AltaAutomovil extends javax.swing.JFrame {
         
         control.agregarAutomovil(modelo, marca, motor, color, patente, cantPuertas);
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnLlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlimpiarActionPerformed
+        txtModelo.setText("");
+        txtMarca.setText("");
+        txtMotor.setText("");
+        txtColor.setText("");
+        txtPatente.setText("");
+        txtPuertas.setText("");
+    }//GEN-LAST:event_btnLlimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
