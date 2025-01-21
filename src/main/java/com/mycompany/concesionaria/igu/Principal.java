@@ -30,6 +30,11 @@ public class Principal extends javax.swing.JFrame {
 
         btnAlta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnAlta.setText("Alta de Automóviles");
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,6 +97,12 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
+        AltaAutomovil altaAutomovil = new AltaAutomovil();
+        altaAutomovil.setVisible(true);
+        altaAutomovil.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnAltaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
