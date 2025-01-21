@@ -1,6 +1,7 @@
 package com.mycompany.concesionaria.igu;
 
 import com.mycompany.concesionaria.logica.Controladora;
+import com.mycompany.concesionaria.plugins.MessagePlugin;
 
 public class AltaAutomovil extends javax.swing.JFrame {
     
@@ -215,6 +216,8 @@ public class AltaAutomovil extends javax.swing.JFrame {
         int cantPuertas = Integer.parseInt(txtPuertas.getText());
         
         control.agregarAutomovil(modelo, marca, motor, color, patente, cantPuertas);
+        
+        MessagePlugin.showMessage("Auto agregado correctamente", "Info", "Agregado");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnLlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLlimpiarActionPerformed
