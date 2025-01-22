@@ -161,5 +161,11 @@ public class ConsultaAuto extends javax.swing.JFrame {
                 return false;
             }
         };
+        
+        String titulos[] = {"Id", "Modelo", "Marca", "Motor", "Color", "Patente", "Puertas"};
+        modeloTabla.setColumnIdentifiers(titulos);
+        
+        tblAutos.setModel(modeloTabla);
+        
     }
 }
