@@ -24,6 +24,11 @@ public class Principal extends javax.swing.JFrame {
 
         btnConsultaEdicionBaja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnConsultaEdicionBaja.setText("Consulta, edicion y baja");
+        btnConsultaEdicionBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaEdicionBajaActionPerformed(evt);
+            }
+        });
 
         btnSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
@@ -103,6 +108,13 @@ public class Principal extends javax.swing.JFrame {
         altaAutomovil.setVisible(true);
         altaAutomovil.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAltaActionPerformed
+
+    private void btnConsultaEdicionBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaEdicionBajaActionPerformed
+        ConsultaAuto datoAutos = new ConsultaAuto();
+        datoAutos.setVisible(true);
+        datoAutos.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_btnConsultaEdicionBajaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
