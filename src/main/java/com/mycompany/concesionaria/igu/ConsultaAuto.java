@@ -1,5 +1,7 @@
 package com.mycompany.concesionaria.igu;
 
+import javax.swing.table.DefaultTableModel;
+
 public class ConsultaAuto extends javax.swing.JFrame {
 
     public ConsultaAuto() {
@@ -20,6 +22,11 @@ public class ConsultaAuto extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("AUTOMÓVILES");
@@ -131,6 +138,10 @@ public class ConsultaAuto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.cargarTabla();
+    }//GEN-LAST:event_formWindowOpened
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
@@ -142,4 +153,13 @@ public class ConsultaAuto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblAutos;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarTabla() {
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int colum){
+                return false;
+            }
+        };
+    }
 }
