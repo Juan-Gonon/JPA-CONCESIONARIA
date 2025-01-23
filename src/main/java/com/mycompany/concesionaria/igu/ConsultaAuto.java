@@ -2,6 +2,7 @@ package com.mycompany.concesionaria.igu;
 
 import com.mycompany.concesionaria.logica.Automovil;
 import com.mycompany.concesionaria.logica.Controladora;
+import com.mycompany.concesionaria.plugins.MessagePlugin;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -88,6 +89,11 @@ public class ConsultaAuto extends javax.swing.JFrame {
 
         btnEliminar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,6 +151,24 @@ public class ConsultaAuto extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.cargarTabla();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        
+        if(tblAutos.getRowCount() > 0){
+            
+            if(tblAutos.getSelectedRow() != -1){
+                int idAuto = (int) tblAutos.getValueAt(tblAutos.getSelectedRow(), 0);
+                this.control.borrarAuto(idAuto);
+                MessagePlugin.showMessage("Auto eliminado", "Info", "Delete");
+                this.cargarTabla();
+            }else{
+                MessagePlugin.showMessage("No seleccionó un registro para eliminar", "Error", "Error al eliminar");
+            }
+            
+        }else{
+            MessagePlugin.showMessage("La tabla está vacía, no se puede eliminar", "Error", "Error al eliminar");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
