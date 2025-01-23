@@ -86,6 +86,11 @@ public class ConsultaAuto extends javax.swing.JFrame {
 
         btnModificar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -169,6 +174,27 @@ public class ConsultaAuto extends javax.swing.JFrame {
             MessagePlugin.showMessage("La tabla está vacía, no se puede eliminar", "Error", "Error al eliminar");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if(tblAutos.getRowCount() > 0){
+            
+            if(tblAutos.getSelectedRow() != -1){
+                int idAuto = (int) tblAutos.getValueAt(tblAutos.getSelectedRow(), 0);
+                
+                ModifAuto modif = new ModifAuto(idAuto);
+                modif.setVisible(true);
+                modif.setLocationRelativeTo(null);
+                
+                MessagePlugin.showMessage("Auto modificado correctamente", "Info", "Update");
+                this.cargarTabla();
+            }else{
+                MessagePlugin.showMessage("No seleccionó un registro para modificar", "Error", "Error al modificar");
+            }
+            
+        }else{
+            MessagePlugin.showMessage("La tabla está vacía, no se puede modificar", "Error", "Error al modificar");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
