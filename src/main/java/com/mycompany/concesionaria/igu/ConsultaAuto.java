@@ -1,8 +1,12 @@
 package com.mycompany.concesionaria.igu;
 
+import com.mycompany.concesionaria.logica.Automovil;
+import com.mycompany.concesionaria.logica.Controladora;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAuto extends javax.swing.JFrame {
+    private Controladora control = new Controladora();
 
     public ConsultaAuto() {
         initComponents();
@@ -165,6 +169,14 @@ public class ConsultaAuto extends javax.swing.JFrame {
         String titulos[] = {"Id", "Modelo", "Marca", "Motor", "Color", "Patente", "Puertas"};
         modeloTabla.setColumnIdentifiers(titulos);
         
+        List <Automovil> listAutomovil = control.obtenerAutos();
+        
+        if(listAutomovil != null){
+            for(Automovil auto: listAutomovil){
+                Object[] object = {auto.getId(), auto.getModelo(), auto.getMarca(), auto.getMotor(), auto.getColor(), auto.getPatente(), auto.getCantPuertas()};
+                modeloTabla.addRow(object);
+            }
+        }
         tblAutos.setModel(modeloTabla);
         
     }

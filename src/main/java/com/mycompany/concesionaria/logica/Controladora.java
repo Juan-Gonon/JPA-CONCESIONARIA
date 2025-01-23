@@ -1,6 +1,7 @@
 package com.mycompany.concesionaria.logica;
 
 import com.mycompany.concesionaria.persistencia.ControladoraPersistencia;
+import java.util.List;
 
 public class Controladora {
     private ControladoraPersistencia controlPersis = new ControladoraPersistencia();
@@ -16,6 +17,10 @@ public class Controladora {
         auto.setCantPuertas(cantPuertas);
         
         controlPersis.agregarAutomovil(auto);
+    }
+
+    public List<Automovil> obtenerAutos() {
+        return this.controlPersis.obtenerAutos();
     }
     
 }
