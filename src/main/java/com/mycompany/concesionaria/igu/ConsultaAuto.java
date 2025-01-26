@@ -185,8 +185,9 @@ public class ConsultaAuto extends javax.swing.JFrame {
                 modif.setVisible(true);
                 modif.setLocationRelativeTo(null);
                 
-                MessagePlugin.showMessage("Auto modificado correctamente", "Info", "Update");
-                this.cargarTabla();
+                // MessagePlugin.showMessage("Auto modificado correctamente", "Info", "Update");
+                // this.cargarTabla();
+                this.dispose();
             }else{
                 MessagePlugin.showMessage("No seleccionó un registro para modificar", "Error", "Error al modificar");
             }

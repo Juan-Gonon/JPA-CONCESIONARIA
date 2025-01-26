@@ -16,7 +16,7 @@ public class Controladora {
         auto.setPatente(patente);
         auto.setCantPuertas(cantPuertas);
         
-        controlPersis.agregarAutomovil(auto);
+        controlPersis.modifAuto(auto);
     }
 
     public List<Automovil> obtenerAutos() {
@@ -29,6 +29,15 @@ public class Controladora {
 
     public Automovil obtenerAuto(int idAuto) {
         return this.controlPersis.obtenerAutos(idAuto);
+    }
+
+    public void modifAuto(Automovil auto, String modelo, String marca, String motor, String color, String patente, int cantPuertas) {
+        auto.setModelo(modelo);
+        auto.setMarca(marca);
+        auto.setMotor(motor);
+        auto.setColor(color);
+        auto.setPatente(patente);
+        auto.setCantPuertas(cantPuertas);
     }
     
 }

@@ -1,13 +1,18 @@
 package com.mycompany.concesionaria.igu;
 
+import com.mycompany.concesionaria.logica.Automovil;
 import com.mycompany.concesionaria.logica.Controladora;
+import com.mycompany.concesionaria.plugins.MessagePlugin;
 
 public class ModifAuto extends javax.swing.JFrame {
 
     private Controladora control = new Controladora();
+    Automovil auto = null;
 
     public ModifAuto(int idAuto) {
+        control = new Controladora();
         initComponents();
+        this.cargarDatosAuto(idAuto);
     }
 
     @SuppressWarnings("unchecked")
@@ -223,6 +228,14 @@ public class ModifAuto extends javax.swing.JFrame {
         String patente = txtPatente.getText();
         int cantPuertas = Integer.parseInt(txtPuertas.getText());
 
+        this.control.modifAuto(auto, modelo, marca, motor, color, patente, cantPuertas);
+        MessagePlugin.showMessage("Auto modificado correctamente", "Info", "Update");
+
+        ConsultaAuto consul = new ConsultaAuto();
+        consul.setVisible(true);
+        consul.setLocationRelativeTo(null);
+
+        this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
 
 
@@ -246,4 +259,15 @@ public class ModifAuto extends javax.swing.JFrame {
     private javax.swing.JTextField txtPatente;
     private javax.swing.JTextField txtPuertas;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatosAuto(int idAuto) {
+        this.auto = control.obtenerAuto(idAuto);
+
+        txtModelo.setText(this.auto.getModelo());
+        txtMarca.setText(this.auto.getMarca());
+        txtMotor.setText(this.auto.getMotor());
+        txtColor.setText(this.auto.getColor());
+        txtPatente.setText(this.auto.getPatente());
+        txtPuertas.setText(String.valueOf(this.auto.getCantPuertas()));
+    }
 }
